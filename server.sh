@@ -3,13 +3,13 @@ set -euo pipefail
 
 OWNER="Saurabh279-sahu"
 REPO="My_File_Server"
-ASSET_NAME="My-File-Server-Protected.zip"
-SERVER_BASENAME="server_v9_protected.js"
+ASSET_NAME="My-File-Server.zip"
+SERVER_BASENAME="server_v10.js"
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 CACHE_DIR="$SCRIPT_DIR/.server-cache"
 ZIP_FILE="$CACHE_DIR/$ASSET_NAME"
-EXTRACT_DIR="$CACHE_DIR/protected"
+EXTRACT_DIR="$CACHE_DIR/server_v10"
 
 log() { printf '[My File Server] %s\n' "$1"; }
 fail() { printf '[My File Server] ERROR: %s\n' "$1" >&2; exit 1; }
@@ -36,13 +36,13 @@ SERVER_FILE=""
 [ -d "$EXTRACT_DIR" ] && SERVER_FILE="$(find_server)"
 
 if [ -z "$SERVER_FILE" ]; then
-  log "Protected server not found locally."
-  log "Downloading the latest protected release..."
+  log "server not found locally."
+  log "Downloading the latest release..."
 
   command -v unzip >/dev/null 2>&1 || fail "'unzip' is required."
 
   TMP_ZIP="$ZIP_FILE.tmp"
-  TMP_EXTRACT="$CACHE_DIR/protected.tmp"
+  TMP_EXTRACT="$CACHE_DIR/server_v10.tmp"
   rm -f "$TMP_ZIP"
   rm -rf "$TMP_EXTRACT"
 
@@ -75,8 +75,8 @@ Make sure a published GitHub Release exists and the asset is named:
   SERVER_FILE="$(find_server)"
 fi
 
-[ -f "$SERVER_FILE" ] || fail "Protected server file was not found."
-log "Protected server found."
+[ -f "$SERVER_FILE" ] || fail "Server file was not found."
+log "Server found."
 log "Starting server..."
 log "Default port: 1234"
 echo
