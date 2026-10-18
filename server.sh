@@ -4,12 +4,12 @@ set -euo pipefail
 OWNER="Saurabh279-sahu"
 REPO="My_File_Server"
 ASSET_NAME="My_File_Server.zip"
-SERVER_BASENAME="server_v10.js"
+SERVER_BASENAME="server_v11.js"
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 CACHE_DIR="$SCRIPT_DIR/.server-cache"
 ZIP_FILE="$CACHE_DIR/$ASSET_NAME"
-EXTRACT_DIR="$CACHE_DIR/server_v10"
+EXTRACT_DIR="$CACHE_DIR/server_v11"
 
 log() { printf '[My File Server] %s\n' "$1"; }
 fail() { printf '[My File Server] ERROR: %s\n' "$1" >&2; exit 1; }
@@ -42,7 +42,7 @@ if [ -z "$SERVER_FILE" ]; then
   command -v unzip >/dev/null 2>&1 || fail "'unzip' is required."
 
   TMP_ZIP="$ZIP_FILE.tmp"
-  TMP_EXTRACT="$CACHE_DIR/server_v10.tmp"
+  TMP_EXTRACT="$CACHE_DIR/server_v11.tmp"
   rm -f "$TMP_ZIP"
   rm -rf "$TMP_EXTRACT"
 
