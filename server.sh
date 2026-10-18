@@ -3,7 +3,7 @@ set -euo pipefail
 
 OWNER="Saurabh279-sahu"
 REPO="My_File_Server"
-ASSET_NAME="My-File-Server.zip"
+ASSET_NAME="My_File_Server.zip"
 SERVER_BASENAME="server_v10.js"
 
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
